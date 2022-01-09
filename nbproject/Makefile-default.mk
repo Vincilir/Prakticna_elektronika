@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=adc.c tajmeri.c main.c
+SOURCEFILES_QUOTED_IF_SPACED=adc.c main.c uart.c timer2.c timer1.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc.o ${OBJECTDIR}/tajmeri.o ${OBJECTDIR}/main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/adc.o.d ${OBJECTDIR}/tajmeri.o.d ${OBJECTDIR}/main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/timer2.o ${OBJECTDIR}/timer1.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/adc.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/timer2.o.d ${OBJECTDIR}/timer1.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/adc.o ${OBJECTDIR}/tajmeri.o ${OBJECTDIR}/main.o
+OBJECTFILES=${OBJECTDIR}/adc.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/timer2.o ${OBJECTDIR}/timer1.o
 
 # Source Files
-SOURCEFILES=adc.c tajmeri.c main.c
+SOURCEFILES=adc.c main.c uart.c timer2.c timer1.c
 
 
 
@@ -101,17 +101,29 @@ ${OBJECTDIR}/adc.o: adc.c  .generated_files/flags/default/e93dcdf04bea955a222ef1
 	@${RM} ${OBJECTDIR}/adc.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  adc.c  -o ${OBJECTDIR}/adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/adc.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/tajmeri.o: tajmeri.c  .generated_files/flags/default/1bbcba436c84772584e6f0369048fe4d37e9a7a0 .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/tajmeri.o.d 
-	@${RM} ${OBJECTDIR}/tajmeri.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  tajmeri.c  -o ${OBJECTDIR}/tajmeri.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/tajmeri.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
-	
 ${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/e29d2a7f72254193477f446077430f5a8aa55dbb .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/uart.o: uart.c  .generated_files/flags/default/a443b82d13250027c67b33a83a5d52861060034c .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/uart.o.d 
+	@${RM} ${OBJECTDIR}/uart.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  uart.c  -o ${OBJECTDIR}/uart.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/uart.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/timer2.o: timer2.c  .generated_files/flags/default/782fb9ee9440821d99919c399f49a661e0c4f23b .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/timer2.o.d 
+	@${RM} ${OBJECTDIR}/timer2.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  timer2.c  -o ${OBJECTDIR}/timer2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer2.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/timer1.o: timer1.c  .generated_files/flags/default/fd408c127106c8ed8651f37e331711c2239dbbb1 .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/timer1.o.d 
+	@${RM} ${OBJECTDIR}/timer1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  timer1.c  -o ${OBJECTDIR}/timer1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer1.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 else
 ${OBJECTDIR}/adc.o: adc.c  .generated_files/flags/default/8b7eaf7ded16683f6f0a72696e916c4f7a903b75 .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
@@ -120,17 +132,29 @@ ${OBJECTDIR}/adc.o: adc.c  .generated_files/flags/default/8b7eaf7ded16683f6f0a72
 	@${RM} ${OBJECTDIR}/adc.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  adc.c  -o ${OBJECTDIR}/adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/adc.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/tajmeri.o: tajmeri.c  .generated_files/flags/default/eed793137cfc9f688225ebabdcdc9228bfd9e14 .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/tajmeri.o.d 
-	@${RM} ${OBJECTDIR}/tajmeri.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  tajmeri.c  -o ${OBJECTDIR}/tajmeri.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/tajmeri.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
-	
 ${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/b93f192a208be66dc74c8d27efcc6e865a3d2137 .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/uart.o: uart.c  .generated_files/flags/default/b8c15704170434524ce2ba64d2cb1025624b097e .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/uart.o.d 
+	@${RM} ${OBJECTDIR}/uart.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  uart.c  -o ${OBJECTDIR}/uart.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/uart.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/timer2.o: timer2.c  .generated_files/flags/default/2ed3402cbf27b74067a6cbbe93d8377031f19e75 .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/timer2.o.d 
+	@${RM} ${OBJECTDIR}/timer2.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  timer2.c  -o ${OBJECTDIR}/timer2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer2.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/timer1.o: timer1.c  .generated_files/flags/default/cf90d484529a83405eed673cd7f42c38d6517a77 .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/timer1.o.d 
+	@${RM} ${OBJECTDIR}/timer1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  timer1.c  -o ${OBJECTDIR}/timer1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer1.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 endif
 
