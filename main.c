@@ -109,14 +109,15 @@ unsigned int brojac_t1, brojac_t2, brojac_t3, vreme, vreme_paljenje, vreme_gasen
 
 void pinInit() { //Inicijalizacija pinova 
     
-    ADPCFGbits.PCFG10 = 1; //PIN B10 digitalni
-    
+    //ADPCFGbits.PCFG10 = 1; //PIN B10 digitalni
+    ADPCFGbits.PCFG8 = 0;
+    ADPCFGbits.PCFG9 = 0;
     TRISAbits.TRISA11 = 0; //PIN D0 izlaz(buzzer)
-    TRISDbits.TRISD9 = 0; //PIN D1 izlaz(servo_pin)
+    //TRISDbits.TRISD9 = 0; //PIN D1 izlaz(servo_pin)
     TRISDbits.TRISD3 = 0; //PIN D3 izlaz(sb_trig_pin)
     TRISBbits.TRISB10 = 0; //PIN B6 izlaz(lcd_bckl_pin)
     TRISBbits.TRISB0 = 1; //PIN B7 ulaz(senzor_blizine)
-    TRISDbits.TRISD9 = 1; //PIN A11 ulaz(echo_pin_interupt)
+    //TRISDbits.TRISD9 = 1; //PIN A11 ulaz(echo_pin_interupt)
     TRISBbits.TRISB6 = 1; //PIN B8 ulaz(mq_senzor)
     TRISBbits.TRISB7 = 1; //PIN B2 ulaz(fotootpornik)
     TRISDbits.TRISD8 = 1; //PIN D8 ulaz(pir_senzor)
