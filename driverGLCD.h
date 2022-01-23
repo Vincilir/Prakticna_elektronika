@@ -82,6 +82,7 @@ void Glcd_PutChar (char AskiKod);
 void Glcd_PutCharBig (char AskiKod);
 void GLCD_Printf (char *au8Text);
 void GLCD_ShowGreed(unsigned char razmak_greeda) ;
-
+void ispis_alk (int procenat);
+void meny(void);
 #endif
 

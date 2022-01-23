@@ -12,6 +12,8 @@
 #include "adc.h"
 #include "timer2.h"
 #include "timer1.h" 
+#include "driverGLCD.h"
+
 //#include "tajmeri.h"
 
 
@@ -19,9 +21,17 @@
 _FOSC(CSW_FSCM_OFF & XT_PLL4);
 _FWDT(WDT_OFF);
 
+
+//#define DRIVE_A PORTBbits.RB10
+//#define DRIVE_B PORTCbits.RC13
+#define DRIVE_A PORTCbits.RC13
+#define DRIVE_B PORTCbits.RC14
+
+
 /*
  * 
  */
+unsigned int touchx, touchy, x_vrednost, y_vrednost, X, Y;
 unsigned int distanca, echo_brojac = 0;
 unsigned int servo_pwm;
 unsigned char tempRX;
@@ -32,19 +42,25 @@ void pinInit() { //Inicijalizacija pinova
     
     ADPCFGbits.PCFG10 = 1; //PIN B10 digitalni
     
-    TRISDbits.TRISD0 = 0; //PIN D0 izlaz(buzzer)
-    TRISDbits.TRISD1 = 0; //PIN D1 izlaz(servo_pin)
+    TRISAbits.TRISA11 = 0; //PIN D0 izlaz(buzzer)
+    TRISDbits.TRISD9 = 0; //PIN D1 izlaz(servo_pin)
     TRISDbits.TRISD3 = 0; //PIN D3 izlaz(sb_trig_pin)
     TRISBbits.TRISB10 = 0; //PIN B6 izlaz(lcd_bckl_pin)
     TRISBbits.TRISB0 = 1; //PIN B7 ulaz(senzor_blizine)
     TRISDbits.TRISD9 = 1; //PIN A11 ulaz(echo_pin_interupt)
-    TRISBbits.TRISB1 = 1; //PIN B8 ulaz(mq_senzor)
-    TRISBbits.TRISB2 = 1; //PIN B2 ulaz(fotootpornik)
+    TRISBbits.TRISB6 = 1; //PIN B8 ulaz(mq_senzor)
+    TRISBbits.TRISB7 = 1; //PIN B2 ulaz(fotootpornik)
     TRISDbits.TRISD8 = 1; //PIN D8 ulaz(pir_senzor)
     TRISFbits.TRISF5 = 0; //PIN F5 izlaz
     TRISFbits.TRISF6 = 0; //PIN F6 izlaz
     TRISFbits.TRISF4 = 0; //PIN F4 izlaz
     TRISFbits.TRISF3= 1; //PIN C15 ulaz(prekidac_zatvorenih_vrata)
+    
+    //Touch 
+	ADPCFGbits.PCFG8=0;
+	ADPCFGbits.PCFG9=0;
+	TRISBbits.TRISB8=1;
+	TRISBbits.TRISB9=1;
     
 }
 
@@ -54,9 +70,11 @@ void pinInit() { //Inicijalizacija pinova
 /////////////////____ADC____///////////////////////
 void __attribute__((__interrupt__)) _ADCInterrupt(void){
     
-    adc_sb = ADCBUF0;
-    adc_mq = ADCBUF1;
-    adc_fo = ADCBUF2;
+    adc_mq = ADCBUF0;
+    adc_fo = ADCBUF1;
+    touchx = ADCBUF2;
+    touchy = ADCBUF3;
+    
     
     IFS0bits.ADIF = 0;
     
@@ -236,6 +254,48 @@ void initTrig(){
     
 }
 
+void Touch_Panel (void)
+{
+// vode horizontalni tranzistori
+	DRIVE_A = 1;  
+	DRIVE_B = 0;
+    
+     LATCbits.LATC13=1;
+     LATCbits.LATC14=0;
+
+	Delay_ms(500); //cekamo jedno vreme da se odradi AD konverzija
+				
+	// ocitavamo x	
+	x_vrednost = touchx;//temp0 je vrednost koji nam daje AD konvertor na BOTTOM pinu		
+
+	// vode vertikalni tranzistori
+     LATCbits.LATC13=0;
+     LATCbits.LATC14=1;
+	DRIVE_A = 0;  
+	DRIVE_B = 1;
+
+	Delay_ms(500); //cekamo jedno vreme da se odradi AD konverzija
+	
+	// ocitavamo y	
+	y_vrednost = touchy;// temp1 je vrednost koji nam daje AD konvertor na LEFT pinu	
+	
+//Ako ?elimo da nam X i Y koordinate budu kao rezolucija ekrana 128x64 treba skalirati vrednosti x_vrednost i y_vrednost tako da budu u opsegu od 0-128 odnosno 0-64
+//skaliranje x-koordinate
+
+    X=(x_vrednost-161)*0.03629;
+
+
+
+//X= ((x_vrednost-AD_Xmin)/(AD_Xmax-AD_Xmin))*128;	
+//vrednosti AD_Xmin i AD_Xmax su minimalne i maksimalne vrednosti koje daje AD konvertor za touch panel.
+
+
+//Skaliranje Y-koordinate
+	Y= ((y_vrednost-500)*0.020725);
+
+//	Y= ((y_vrednost-AD_Ymin)/(AD_Ymax-AD_Ymin))*64;
+}
+
 
 
 
@@ -250,6 +310,8 @@ int main(int argc, char** argv) {
     initUART1();
     ADCinit();
     pinInit();
+    GLCD_LcdInit();
+	GLCD_ClrScr();
     //initTIMER2(30);
     initTIMER1(25);
     //Init_T1();
@@ -261,9 +323,19 @@ int main(int argc, char** argv) {
     //initTrig();
   //Interrupt_init();
    OpenTimer3(25,0);
-
+   
+   CORCONbits.PSV = 1;
+	//deo mkoji erovatno nije potreban ali pisan je jer je oc pravio problem zbog pullupa
+	IEC1bits.OC4IE = 0;// Disable the Interrupt bit in IEC Register 
+	OC4CONbits.OCM = 0;//Turn off Output Compare 4 
+	IFS1bits.OC4IF = 0;//Disable the Interrupt Flag bit in IFS Register 
+    GLCD_LcdInit();
+	GLCD_ClrScr();
     while(1){
-        initPWM_servo();
+        //initPWM_servo();
+        meny();
+        Delay_ms(1000);
+        GLCD_ClrScr();
         /*int dis = 0;
         LATDbits.LATD3 = 1;
         Delay_ms(10);

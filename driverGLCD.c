@@ -199,6 +199,83 @@ const  char font[1024] = {
 0x08, 0x1C, 0x2A, 0x08, 0x08 // <-
 };
 
+void meny(void)
+{
+
+GLCD_ClrScr();
+GoToXY(0,0);
+GLCD_Rectangle (0,0,60,25);
+GLCD_Rectangle (0,27,60,54);
+GLCD_Rectangle (64,0,127,25);
+GLCD_Rectangle (64,27,127,54);
+GoToXY(13,1);
+GLCD_Printf ("SVETLO");
+GoToXY(85,1);
+GLCD_Printf ("PIR");
+GoToXY(14,5);
+GLCD_Printf ("DIST.");
+GoToXY(90,5);
+GLCD_Printf ("%");
+GoToXY(0,0);
+GLCD_Rectangle (0,56,49,63);
+GoToXY(10,7);
+GLCD_Printf ("NAZAD");
+
+}
+
+
+void ispis_alk (int procenat)
+{
+GoToXY(35,5);
+
+switch (procenat)
+{
+    case 0 ... 10 : 
+        GLCD_Printf ("Alc.: 10%");
+        break;
+        
+    case 11 ... 20 : 
+        GLCD_Printf ("Alc.: 20%");
+        break;
+        
+    case 21 ... 30 : 
+        GLCD_Printf ("Alc.: 30%");
+         break;
+         
+    case 31 ... 40 : 
+        GLCD_Printf ("Alc.: 40%");
+        break;
+        
+    case 41 ... 50 : 
+        GLCD_Printf ("Alc.: 50%");
+        break;
+        
+    case 51 ... 60 : 
+        GLCD_Printf ("Alc.: 60%");
+         break;
+         
+    case 61 ... 70 : 
+        GLCD_Printf ("Alc.: 70%");
+        break;
+        
+    case 71 ... 80 : 
+        GLCD_Printf ("Alc.: 80%");
+        break;
+    case 81 ... 90 : 
+        GLCD_Printf ("Alc.: 90%");
+        break;
+        
+    case 91 ... 100 : 
+        GLCD_Printf ("Alc.: 100%");
+        break;
+        
+    default :
+       
+        break;
+}
+}
+
+
 void SetRST(unsigned char vrednost)
 {
 	if (vrednost)
