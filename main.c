@@ -379,6 +379,7 @@ int main(int argc, char** argv) {
     initUART1();
     ADCinit();
     pinInit();
+    ConfigureLCDPins();
     GLCD_LcdInit();
 	GLCD_ClrScr();
     //initTIMER2(30);
