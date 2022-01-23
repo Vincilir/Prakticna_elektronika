@@ -404,8 +404,11 @@ int main(int argc, char** argv) {
     while(1){
         //initPWM_servo();
         //meny();
-    GLCD_DisplayPicture(DAN);
-    Delay_us(100000);
+   GLCD_DisplayPicture(DAN);
+   Touch_Panel();
+   if((x_vrednost > 0 && x_vrednost < 30)&&(y_vrednost > 0 && y_vrednost < 30))
+       meny();
+    
         /*int dis = 0;
         LATDbits.LATD3 = 1;
         Delay_ms(10);
