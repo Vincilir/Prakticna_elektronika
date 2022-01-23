@@ -124,7 +124,8 @@ void pinInit() { //Inicijalizacija pinova
     TRISFbits.TRISF6 = 0; //PIN F6 izlaz
     TRISFbits.TRISF4 = 0; //PIN F4 izlaz
     TRISFbits.TRISF3= 1; //PIN C15 ulaz(prekidac_zatvorenih_vrata)
-    
+    TRISCbits.TRISC13= 0;
+    TRISCbits.TRISC14= 0;
     //Touch 
 	ADPCFGbits.PCFG8=0;
 	ADPCFGbits.PCFG9=0;
