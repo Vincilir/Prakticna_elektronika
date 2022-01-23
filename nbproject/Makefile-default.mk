@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=adc.c main.c uart.c timer2.c timer1.c
+SOURCEFILES_QUOTED_IF_SPACED=adc.c main.c uart.c timer2.c timer1.c tajmeri.c timer3.c driverGLCD.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/timer2.o ${OBJECTDIR}/timer1.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/adc.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/timer2.o.d ${OBJECTDIR}/timer1.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/timer2.o ${OBJECTDIR}/timer1.o ${OBJECTDIR}/tajmeri.o ${OBJECTDIR}/timer3.o ${OBJECTDIR}/driverGLCD.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/adc.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/timer2.o.d ${OBJECTDIR}/timer1.o.d ${OBJECTDIR}/tajmeri.o.d ${OBJECTDIR}/timer3.o.d ${OBJECTDIR}/driverGLCD.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/adc.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/timer2.o ${OBJECTDIR}/timer1.o
+OBJECTFILES=${OBJECTDIR}/adc.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/timer2.o ${OBJECTDIR}/timer1.o ${OBJECTDIR}/tajmeri.o ${OBJECTDIR}/timer3.o ${OBJECTDIR}/driverGLCD.o
 
 # Source Files
-SOURCEFILES=adc.c main.c uart.c timer2.c timer1.c
+SOURCEFILES=adc.c main.c uart.c timer2.c timer1.c tajmeri.c timer3.c driverGLCD.c
 
 
 
@@ -125,6 +125,24 @@ ${OBJECTDIR}/timer1.o: timer1.c  .generated_files/flags/default/fd408c127106c8ed
 	@${RM} ${OBJECTDIR}/timer1.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  timer1.c  -o ${OBJECTDIR}/timer1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer1.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
+${OBJECTDIR}/tajmeri.o: tajmeri.c  .generated_files/flags/default/1bbcba436c84772584e6f0369048fe4d37e9a7a0 .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/tajmeri.o.d 
+	@${RM} ${OBJECTDIR}/tajmeri.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  tajmeri.c  -o ${OBJECTDIR}/tajmeri.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/tajmeri.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/timer3.o: timer3.c  .generated_files/flags/default/850c6a1a1693c085f5f1b2f782c30260dee1cfae .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/timer3.o.d 
+	@${RM} ${OBJECTDIR}/timer3.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  timer3.c  -o ${OBJECTDIR}/timer3.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer3.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/driverGLCD.o: driverGLCD.c  .generated_files/flags/default/fcea8fa896c245d9d60484db7d68b906e5b45c2e .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/driverGLCD.o.d 
+	@${RM} ${OBJECTDIR}/driverGLCD.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  driverGLCD.c  -o ${OBJECTDIR}/driverGLCD.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/driverGLCD.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
 else
 ${OBJECTDIR}/adc.o: adc.c  .generated_files/flags/default/8b7eaf7ded16683f6f0a72696e916c4f7a903b75 .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
 	@${MKDIR} "${OBJECTDIR}" 
@@ -155,6 +173,24 @@ ${OBJECTDIR}/timer1.o: timer1.c  .generated_files/flags/default/cf90d484529a8340
 	@${RM} ${OBJECTDIR}/timer1.o.d 
 	@${RM} ${OBJECTDIR}/timer1.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  timer1.c  -o ${OBJECTDIR}/timer1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer1.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/tajmeri.o: tajmeri.c  .generated_files/flags/default/eed793137cfc9f688225ebabdcdc9228bfd9e14 .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/tajmeri.o.d 
+	@${RM} ${OBJECTDIR}/tajmeri.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  tajmeri.c  -o ${OBJECTDIR}/tajmeri.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/tajmeri.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/timer3.o: timer3.c  .generated_files/flags/default/504b9062482d0f935f63ffbe418f369e85a424c5 .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/timer3.o.d 
+	@${RM} ${OBJECTDIR}/timer3.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  timer3.c  -o ${OBJECTDIR}/timer3.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer3.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/driverGLCD.o: driverGLCD.c  .generated_files/flags/default/756a7db7d2e4915818dc415575674a6b6dff4e98 .generated_files/flags/default/6698a9c6419a45b8a42ac85899332a8de39da7bf
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/driverGLCD.o.d 
+	@${RM} ${OBJECTDIR}/driverGLCD.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  driverGLCD.c  -o ${OBJECTDIR}/driverGLCD.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/driverGLCD.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 endif
 

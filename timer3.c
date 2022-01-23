@@ -1,9 +1,9 @@
-#include "timer2.h"
+#include "timer3.h"
 #include<p30fxxxx.h>
-#ifdef _T2IF
+#ifdef _T3IF
 
 //#define TMR2_period 10000 /*  Fosc = 10MHz,
-					        //  1/Fosc = 0.1us !!!, 0.1us * 10000 = 1ms  
+					        //  1/Fosc = 0.1us !!!, 0.1us * 10000 = 1ms  */
 
 
 
@@ -15,12 +15,11 @@
 *    Return Value:   None                                           *
 ********************************************************************/
 
-
-void CloseTimer2(void)
+void CloseTimer3(void)
 {
-    _T2IE = 0;      /* Disable the Timer2 interrupt */
-    T2CONbits.TON = 0;      /* Disable timer2 */
-    _T2IF = 0;      /* Clear Timer interrupt flag */
+    _T3IE = 0;      /* Disable the Timer2 interrupt */
+    T3CONbits.TON = 0;      /* Disable timer2 */
+    _T3IF = 0;      /* Clear Timer interrupt flag */
 }
 
 
@@ -32,11 +31,11 @@ void CloseTimer2(void)
 *    Return Value:  None                                           *
 *******************************************************************/
 
-void ConfigIntTimer2(unsigned int config)
+void ConfigIntTimer4(unsigned int config)
 {
-    _T2IF = 0;                   /* clear IF bit */
-    _T2IP = (config &0x0007);    /* assigning Interrupt Priority */
-    _T2IE = (config &0x0008)>>3; /* Interrupt Enable /Disable */
+    _T3IF = 0;                   /* clear IF bit */
+    _T3IP = (config &0x0007);    /* assigning Interrupt Priority */
+    _T3IE = (config &0x0008)>>3; /* Interrupt Enable /Disable */
 }
 
 /********************************************************************
@@ -48,12 +47,12 @@ void ConfigIntTimer2(unsigned int config)
 *    Return Value:   None                                           *
 ********************************************************************/
 
-void OpenTimer2(unsigned int config,unsigned int period)
+void OpenTimer3(unsigned int config,unsigned int period)
 {
-    TMR2  = 0;          /* Reset Timer2 to 0x0000 */
-    PR2  = period;     /* assigning Period to Timer period register */
-    T2CON = config;     /* configure control reg */
-    T2CONbits.T32 = 0;
+    TMR3  = 0;          /* Reset Timer2 to 0x0000 */
+    PR3   = period;     /* assigning Period to Timer period register */
+    T3CON = config;     /* configure control reg */
+    
 }
 
 /********************************************************************
@@ -64,9 +63,9 @@ void OpenTimer2(unsigned int config,unsigned int period)
 *    Return Value:   unsigned int: Timer  16-bit value              *
 ********************************************************************/
 
-unsigned int ReadTimer2(void)
+unsigned int ReadTimer3(void)
 {
-    return (TMR2);      /* Return the Timer2 register */
+    return (TMR3);      /* Return the Timer2 register */
 }
 
 
@@ -77,21 +76,22 @@ unsigned int ReadTimer2(void)
 *    Return Value:   None                                           *
 ********************************************************************/
 
-void WriteTimer2(unsigned int timer)
+void WriteTimer3(unsigned int timer)
 {
-    TMR2 = timer;     /* assign timer value to Timer2 Register */
+    TMR3 = timer;     /* assign timer value to Timer2 Register */
 }
 
-/*void initTIMER2(int period)//konfiguracija Timer1
+/*void initTIMER3(int period)//konfiguracija Timer1
 {
 	unsigned int match_value;//vrednost koja se stavlja u period
 
-	ConfigIntTimer2(T2_INT_PRIOR_1 & T2_INT_ON);//prioritet i ukljucivanje tajmera
-	WriteTimer2(0);
+	ConfigIntTimer3(T3_INT_PRIOR_1 & T2_INT_ON);//prioritet i ukljucivanje tajmera
+	WriteTimer3(0);
 	match_value = period ;
-	OpenTimer2(T2_ON & T2_GATE_OFF & T2_IDLE_CON & T2_PS_1_1 & T2_SYNC_EXT_OFF & T2_SOURCE_INT,match_value );
+	OpenTimer3(T3_ON & T3_GATE_OFF & T3_IDLE_CON & T3_PS_1_1 & T3_SYNC_EXT_OFF & T3_SOURCE_INT,match_value );
 
 }*/
+
 
 
 
@@ -99,3 +99,4 @@ void WriteTimer2(unsigned int timer)
 #else 
 #warning "Does not build on this target"
 #endif
+
