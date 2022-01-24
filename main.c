@@ -450,7 +450,7 @@ void Touch_Panel (void)
 
 int main(int argc, char** argv) {
 
-    unsigned int uslov = 1;
+    unsigned int uslov = 0, ulaz = 0;
     unsigned int promena = 0;
     unsigned int temp = 0; 
     unsigned int flag1 = 1;
@@ -487,38 +487,47 @@ int main(int argc, char** argv) {
    
    
    //***********PROVERA STANJA************ 
-   if(Y > 30 && Y <= 64 && X > 0 && X < 31){
+   if((Y > 30 && Y <= 64) && (X > 0 && X < 31)){
        temp = 1;  
        uslov = 1;
        promena = 1;
        Delay_ms(200);
    }
-   GLCD_ClrScr();
-   do{    
+   //GLCD_ClrScr();
+  while(uslov == 1){    
        Touch_Panel();
        Delay_ms(500);
-       //GLCD_ClrScr();
-   if (temp == 1){
+    
+    if(temp == 2){
        if(X > 0 && X <= 60 && Y > 38 && Y < 60){
-           temp = 2;  //brightness
+           temp = 3;  //brightness
+           promena = 2;
+           ulaz = 1;
        }
        if(X > 0 && X <= 60 && Y > 9 && Y < 36){
-           temp = 3;  //distance
+           temp = 4;  //distance
+           promena = 2;
+           ulaz = 1;
        } 
        if(X > 64 && X <= 127 && Y > 38 && Y < 63){
-           temp = 4;  //pir sensor
+           temp = 5;  //pir sensor
+           promena = 2;
+           ulaz = 1;
        }
        if(X > 64 && X <= 127 && Y > 9 && Y < 36){
-           temp = 5;  //tolerance
+           temp = 6;  //tolerance
+           promena = 2;
+           ulaz = 1;
        }
        if(X > 0 && X <= 7 && Y > 0 && Y < 49){
            temp = 0;
            uslov = 0;//NAZAD
        }
-   }
+    }
        
        
-   if (temp == 2){
+   if (temp == 3){
+       
        if(X > 6 && X <= 31 && Y > 19 && Y < 43){
             //tamnije
        }
@@ -535,7 +544,7 @@ int main(int argc, char** argv) {
        }   
    }
        
-   if (temp == 3){    //DISTANCA
+   if (temp == 4){    //DISTANCA
        if(X > 0 && X <= 61 && Y > 9 && Y < 36){
              //+  POVECAJ DISTANCU
        }
@@ -550,7 +559,7 @@ int main(int argc, char** argv) {
    }
        
        
-   if (temp == 4){    //PIR SENZOR
+   if (temp == 5){    //PIR SENZOR
        if(X > 0 && X <= 61 && Y > 9 && Y < 36){
              // ON
        }
@@ -564,7 +573,7 @@ int main(int argc, char** argv) {
        }
    }
        
-    if (temp == 5){    //TOLERANCIJA
+    if (temp == 6){    //TOLERANCIJA
        if(X > 0 && X <= 61 && Y > 9 && Y < 36){
              //+  POVECAJ TOLERANCIJU
        }
@@ -584,20 +593,28 @@ int main(int argc, char** argv) {
    if (temp == 1 && promena == 1){ //meni
        meny();
        promena =0;
+       temp = 2;
       }
    
-    if (temp == 2 && promena == 1){     //brightness
+    if (temp == 3 && promena == 2){     //brightness
+       if(ulaz == 1 ){
+            GLCD_ClrScr();
+            ulaz = 0;
+        }
        GLCD_DisplayPicture(brightness);
        GoToXY(0,0);
        GLCD_Rectangle (0,56,49,63);
        GoToXY(10,7);
        GLCD_Printf ("NAZAD");
-       promena = 0;
+       
       }
    
    
-     if (temp == 3 && promena == 1){   //distamce
-        GLCD_ClrScr();
+     if (temp == 4 && promena == 2){   //distamce
+        if(ulaz == 1 ){
+            GLCD_ClrScr();
+            ulaz = 0;
+        }
         GoToXY(0,0);
         GLCD_Rectangle (0,0,127,25);
         GoToXY(20,1);
@@ -612,11 +629,14 @@ int main(int argc, char** argv) {
         GLCD_Rectangle (0,56,49,63);
         GoToXY(10,7);
         GLCD_Printf ("NAZAD");
-        promena = 0;
+       
       }   
        
-    if (temp == 4 && promena == 1){   //pir senzor
-        GLCD_ClrScr();
+    if (temp == 5 && promena == 2){   //pir senzor
+        if(ulaz == 1 ){
+            GLCD_ClrScr();
+            ulaz = 0;
+        }
         GoToXY(0,0);
         GLCD_Rectangle (0,0,127,25);
         GoToXY(20,1);
@@ -631,11 +651,14 @@ int main(int argc, char** argv) {
         GLCD_Rectangle (0,56,49,63);
         GoToXY(10,7);
         GLCD_Printf ("NAZAD");
-        promena =0;
+        
       }
       
-    if (temp == 5 && promena == 1){   //TOLERANCIJA
-        GLCD_ClrScr();
+    if (temp == 6 && promena == 2){   //TOLERANCIJA
+        if(ulaz == 1 ){
+            GLCD_ClrScr();
+            ulaz = 0;
+        }
         GoToXY(0,0);
         GLCD_Rectangle (0,0,127,25);
         GoToXY(20,1);
@@ -650,16 +673,16 @@ int main(int argc, char** argv) {
         GLCD_Rectangle (0,56,49,63);
         GoToXY(10,7);
         GLCD_Printf ("NAZAD");
-        promena =0;
+        
       }
        
-    if (temp == 5 && promena == 1){ 
+    if (temp == 7 && promena == 1){ 
        GLCD_DisplayPicture(DAN);
        promena =0;
        
     }   
-       
-   } while (uslov == 1);
+  
+   }
     
         /*int dis = 0;
         LATDbits.LATD3 = 1;
