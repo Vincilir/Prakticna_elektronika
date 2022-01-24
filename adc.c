@@ -174,7 +174,7 @@ bit 15-0 CSSL<15:0>: A/D Input Pin Scan Selection bits
 	1 = Select ANx for input scan
 	0 = Skip ANx for input scan*/
 //ADCSSL=0b0001111111111111;
-ADCSSL=0b0000001111000000;
+ADCSSL=0b0000001100000000;
 ADCON1bits.ASAM=1;
 
 IFS0bits.ADIF=1;
