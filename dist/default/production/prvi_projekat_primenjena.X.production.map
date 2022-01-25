@@ -115,10 +115,10 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x100               0x38c           0x552  (1362)
 .const                       0x48c              0x14b8          0x1f14  (7956)
-.text                       0x1944              0x1200          0x1b00  (6912)
-.dinit                      0x2b44                 0xe            0x15  (21)
+.text                       0x1944              0x11e8          0x1adc  (6876)
+.dinit                      0x2b2c                 0xe            0x15  (21)
 
-                 Total "program" memory used (bytes):         0x3f7b  (16251) 33%
+                 Total "program" memory used (bytes):         0x3f57  (16215) 33%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x800]
@@ -295,44 +295,44 @@ External Symbols in Program Memory (by address):
                   0x00243a                  _initTrig
                   0x002448                  _Touch_Panel
                   0x002496                  _main
-                  0x002880                  _initUART1
-                  0x00289a                  _WriteUART1
-                  0x0028c2                  _RS232_putst
-                  0x0028de                  _WriteUART1dec2string
-                  0x00294a                  _CloseTimer1
-                  0x002956                  _ConfigIntTimer1
-                  0x002992                  _OpenTimer1
-                  0x0029a6                  _ReadTimer1
-                  0x0029ae                  _WriteTimer1
-                  0x0029ba                  _initTIMER1
-                  0x0029d4                  _CloseTimer2
-                  0x0029e0                  _ConfigIntTimer2
-                  0x002a1c                  _OpenTimer2
-                  0x002a32                  _ReadTimer2
-                  0x002a3a                  _WriteTimer2
-                  0x002a46                  _CloseTimer3
-                  0x002a52                  _ConfigIntTimer4
-                  0x002a8e                  _OpenTimer3
-                  0x002aa2                  _ReadTimer3
-                  0x002aaa                  _WriteTimer3
-                  0x002ab6                  _ADCinit
-                  0x002b1c                  _Init_T2
-                  0x002b30                  _Init_T1
+                  0x002868                  _initUART1
+                  0x002882                  _WriteUART1
+                  0x0028aa                  _RS232_putst
+                  0x0028c6                  _WriteUART1dec2string
+                  0x002932                  _CloseTimer1
+                  0x00293e                  _ConfigIntTimer1
+                  0x00297a                  _OpenTimer1
+                  0x00298e                  _ReadTimer1
+                  0x002996                  _WriteTimer1
+                  0x0029a2                  _initTIMER1
+                  0x0029bc                  _CloseTimer2
+                  0x0029c8                  _ConfigIntTimer2
+                  0x002a04                  _OpenTimer2
+                  0x002a1a                  _ReadTimer2
+                  0x002a22                  _WriteTimer2
+                  0x002a2e                  _CloseTimer3
+                  0x002a3a                  _ConfigIntTimer4
+                  0x002a76                  _OpenTimer3
+                  0x002a8a                  _ReadTimer3
+                  0x002a92                  _WriteTimer3
+                  0x002a9e                  _ADCinit
+                  0x002b04                  _Init_T2
+                  0x002b18                  _Init_T1
                   0xf8000a                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x002ab6                  _ADCinit
+                  0x002a9e                  _ADCinit
                   0x00110c                  _AD_Xmax
                   0x00110a                  _AD_Xmin
                   0x001110                  _AD_Ymax
                   0x00110e                  _AD_Ymin
-                  0x00294a                  _CloseTimer1
-                  0x0029d4                  _CloseTimer2
-                  0x002a46                  _CloseTimer3
-                  0x002956                  _ConfigIntTimer1
-                  0x0029e0                  _ConfigIntTimer2
-                  0x002a52                  _ConfigIntTimer4
+                  0x002932                  _CloseTimer1
+                  0x0029bc                  _CloseTimer2
+                  0x002a2e                  _CloseTimer3
+                  0x00293e                  _ConfigIntTimer1
+                  0x0029c8                  _ConfigIntTimer2
+                  0x002a3a                  _ConfigIntTimer4
                   0x001b8a                  _ConfigureLCDPins
                   0x001bb8                  _ConfigureLcdData
                   0x001512                  _DAN
@@ -352,8 +352,8 @@ External Symbols in Program Memory (by name):
                   0x001cb0                  _GoToX
                   0x001d04                  _GoToXY
                   0x001cea                  _GoToY
-                  0x002b30                  _Init_T1
-                  0x002b1c                  _Init_T2
+                  0x002b18                  _Init_T1
+                  0x002b04                  _Init_T2
                   0x001d5e                  _LcdDataRead
                   0x001dee                  _LcdDataWrite
                   0x001c6e                  _LcdDelay
@@ -364,14 +364,14 @@ External Symbols in Program Memory (by name):
                   0x001f08                  _LcdSetDot
                   0x001c86                  _LcdWaitBusy
                   0x00048c                  _NOC
-                  0x002992                  _OpenTimer1
-                  0x002a1c                  _OpenTimer2
-                  0x002a8e                  _OpenTimer3
-                  0x0028c2                  _RS232_putst
+                  0x00297a                  _OpenTimer1
+                  0x002a04                  _OpenTimer2
+                  0x002a76                  _OpenTimer3
+                  0x0028aa                  _RS232_putst
                   0x001c26                  _ReadLcdData
-                  0x0029a6                  _ReadTimer1
-                  0x002a32                  _ReadTimer2
-                  0x002aa2                  _ReadTimer3
+                  0x00298e                  _ReadTimer1
+                  0x002a1a                  _ReadTimer2
+                  0x002a8a                  _ReadTimer3
                   0x001b6e                  _SetCS1
                   0x001b52                  _SetCS2
                   0x001afe                  _SetE
@@ -380,11 +380,11 @@ External Symbols in Program Memory (by name):
                   0x001ae2                  _SetRST
                   0x001b1a                  _SetRW
                   0x002448                  _Touch_Panel
-                  0x0029ae                  _WriteTimer1
-                  0x002a3a                  _WriteTimer2
-                  0x002aaa                  _WriteTimer3
-                  0x00289a                  _WriteUART1
-                  0x0028de                  _WriteUART1dec2string
+                  0x002996                  _WriteTimer1
+                  0x002a22                  _WriteTimer2
+                  0x002a92                  _WriteTimer3
+                  0x002882                  _WriteUART1
+                  0x0028c6                  _WriteUART1dec2string
                   0x0001c8                  __ADCInterrupt
                   0x000236                  __DefaultInterrupt
                   0xf8000a                  __FGS.sec
@@ -417,9 +417,9 @@ External Symbols in Program Memory (by name):
                   0x0023b6                  _buzzer_stop
                   0x000c8c                  _font
                   0x002420                  _initPWM_servo
-                  0x0029ba                  _initTIMER1
+                  0x0029a2                  _initTIMER1
                   0x00243a                  _initTrig
-                  0x002880                  _initUART1
+                  0x002868                  _initUART1
                   0x0019bc                  _ispis_alk
                   0x00233c                  _lcd_bck_light
                   0x002496                  _main
@@ -591,7 +591,7 @@ __RESERVED2
 
 __FGS             0xf8000a          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf8000a          0x2 /CW/_FGSP8â
+ __FGS.sec        0xf8000a          0x2 /CW/_FGSÐ¸æ
                   0xf8000a                  __FGS.sec
 
 __FICD
@@ -1408,7 +1408,7 @@ LOAD c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
 OUTPUT(dist/default/production/prvi_projekat_primenjena.X.production.elf elf32-pic30)
-LOAD /CW/_FGSP8â
+LOAD /CW/_FGSÐ¸æ
 LOAD default_isr
 LOAD data_init
 
@@ -1543,7 +1543,7 @@ __c30_signature
                     0x9112                  _brightness
                     0x9512                  _DAN
 
-.text             0x001944       0x1200
+.text             0x001944       0x11e8
  .text            0x001944        0x91c build/default/production/driverGLCD.o
                   0x001944                  _meny
                   0x0019bc                  _ispis_alk
@@ -1580,7 +1580,7 @@ __c30_signature
                   0x002160                  _GLCD_Printf
                   0x00217a                  _GLCD_ShowGreed
                   0x0021f6                  _GLCD_Clr_Rectangle
- .text            0x002260        0x620 build/default/production/main.o
+ .text            0x002260        0x608 build/default/production/main.o
                   0x002260                  _Delay
                   0x002278                  _pinInit
                   0x002298                  _Delay_us
@@ -1600,35 +1600,35 @@ __c30_signature
                   0x00243a                  _initTrig
                   0x002448                  _Touch_Panel
                   0x002496                  _main
- .text            0x002880         0xca build/default/production/uart.o
-                  0x002880                  _initUART1
-                  0x00289a                  _WriteUART1
-                  0x0028c2                  _RS232_putst
-                  0x0028de                  _WriteUART1dec2string
- .text            0x00294a         0x8a build/default/production/timer1.o
-                  0x00294a                  _CloseTimer1
-                  0x002956                  _ConfigIntTimer1
-                  0x002992                  _OpenTimer1
-                  0x0029a6                  _ReadTimer1
-                  0x0029ae                  _WriteTimer1
-                  0x0029ba                  _initTIMER1
- .text            0x0029d4         0x72 build/default/production/timer2.o
-                  0x0029d4                  _CloseTimer2
-                  0x0029e0                  _ConfigIntTimer2
-                  0x002a1c                  _OpenTimer2
-                  0x002a32                  _ReadTimer2
-                  0x002a3a                  _WriteTimer2
- .text            0x002a46         0x70 build/default/production/timer3.o
-                  0x002a46                  _CloseTimer3
-                  0x002a52                  _ConfigIntTimer4
-                  0x002a8e                  _OpenTimer3
-                  0x002aa2                  _ReadTimer3
-                  0x002aaa                  _WriteTimer3
- .text            0x002ab6         0x66 build/default/production/adc.o
-                  0x002ab6                  _ADCinit
- .text            0x002b1c         0x28 build/default/production/tajmeri.o
-                  0x002b1c                  _Init_T2
-                  0x002b30                  _Init_T1
+ .text            0x002868         0xca build/default/production/uart.o
+                  0x002868                  _initUART1
+                  0x002882                  _WriteUART1
+                  0x0028aa                  _RS232_putst
+                  0x0028c6                  _WriteUART1dec2string
+ .text            0x002932         0x8a build/default/production/timer1.o
+                  0x002932                  _CloseTimer1
+                  0x00293e                  _ConfigIntTimer1
+                  0x00297a                  _OpenTimer1
+                  0x00298e                  _ReadTimer1
+                  0x002996                  _WriteTimer1
+                  0x0029a2                  _initTIMER1
+ .text            0x0029bc         0x72 build/default/production/timer2.o
+                  0x0029bc                  _CloseTimer2
+                  0x0029c8                  _ConfigIntTimer2
+                  0x002a04                  _OpenTimer2
+                  0x002a1a                  _ReadTimer2
+                  0x002a22                  _WriteTimer2
+ .text            0x002a2e         0x70 build/default/production/timer3.o
+                  0x002a2e                  _CloseTimer3
+                  0x002a3a                  _ConfigIntTimer4
+                  0x002a76                  _OpenTimer3
+                  0x002a8a                  _ReadTimer3
+                  0x002a92                  _WriteTimer3
+ .text            0x002a9e         0x66 build/default/production/adc.o
+                  0x002a9e                  _ADCinit
+ .text            0x002b04         0x28 build/default/production/tajmeri.o
+                  0x002b04                  _Init_T2
+                  0x002b18                  _Init_T1
 
-.dinit            0x002b44          0xe
- .dinit           0x002b44          0xe data_init
+.dinit            0x002b2c          0xe
+ .dinit           0x002b2c          0xe data_init

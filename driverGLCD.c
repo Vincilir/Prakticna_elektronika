@@ -1009,3 +1009,6 @@ void GLCD_Clr_Rectangle (unsigned char u8Xaxis1,unsigned char u8Yaxis1,unsigned 
 }
 
 
+
+
+

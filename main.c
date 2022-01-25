@@ -519,9 +519,9 @@ int main(int argc, char** argv) {
            promena = 2;
            ulaz = 1;
        }
-       if(X > 0 && X <= 7 && Y > 0 && Y < 49){
+       if(X > 0 && X <= 49 && Y > 0 && Y < 10){
            temp = 0;
-           uslov = 0;//NAZAD
+           promena = 0;//NAZAD
        }
     }
        
@@ -538,9 +538,10 @@ int main(int argc, char** argv) {
             //svetlije
        }
        
-       if(X > 0 && X <= 7 && Y > 0 && Y < 49){
+       if(X > 0 && X <= 49 && Y > 0 && Y < 10){
            temp = 1; 
-           promena = 1;//NAZAD
+           promena = 1;
+           ulaz = 0;//NAZAD
        }   
    }
        
@@ -552,9 +553,10 @@ int main(int argc, char** argv) {
              //-  SMANJI DISTANCU
        } 
 
-       if(X > 0 && X <= 7 && Y > 0 && Y < 49){
+       if(X > 0 && X <= 49 && Y > 0 && Y < 10){
            temp = 1;
-           uslov = 0;//NAZAD
+           promena = 1;
+           ulaz = 0;//NAZAD
        }
    }
        
@@ -567,9 +569,10 @@ int main(int argc, char** argv) {
              // OFF
        } 
 
-       if(X > 0 && X <= 7 && Y > 0 && Y < 49){
+       if(X > 0 && X <= 49 && Y > 0 && Y < 10){
            temp = 1;
-           uslov = 0;//NAZAD
+           promena = 1;
+           ulaz = 0;//NAZAD
        }
    }
        
@@ -581,9 +584,10 @@ int main(int argc, char** argv) {
              //-  SMANJI TOLERANCIJU
        } 
 
-       if(X > 0 && X <= 7 && Y > 0 && Y < 49){
+       if(X > 0 && X <= 49 && Y > 0 && Y < 10){
            temp = 1;
-           uslov = 0;//NAZAD
+           promena = 1;
+           ulaz = 0;//NAZAD
        }
    }
    
@@ -616,17 +620,17 @@ int main(int argc, char** argv) {
             ulaz = 0;
         }
         GoToXY(0,0);
-        GLCD_Rectangle (0,0,127,25);
+        //GLCD_Rectangle (0,0,127,25);
         GoToXY(20,1);
         GLCD_Printf ("DISTANCA");
-        GLCD_Rectangle (0,27,61,54);
+        //GLCD_Circle (28,42,8);
         GoToXY(25,5);
         GLCD_Printf ("+");
-        GLCD_Rectangle (65,27,127,54);
+        //GLCD_Circle (94,42,8);
         GoToXY(90,5);
         GLCD_Printf ("-");
         GoToXY(0,0);
-        GLCD_Rectangle (0,56,49,63);
+        //GLCD_Rectangle (0,56,49,63);
         GoToXY(10,7);
         GLCD_Printf ("NAZAD");
        
