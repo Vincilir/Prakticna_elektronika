@@ -18,7 +18,7 @@
 
 
 
-//_FOSC(CSW_FSCM_OFF & XT_PLL4);
+
 _FOSC(CSW_FSCM_OFF & HS3_PLL4); 
 _FWDT(WDT_OFF);
 _FGS(CODE_PROT_OFF);
@@ -174,7 +174,7 @@ unsigned int touchx, touchy, x_vrednost, y_vrednost, X, Y, adc_X, adc_Y;
 unsigned int distanca, echo_brojac = 0;
 unsigned int servo_pwm;
 unsigned char tempRX;
-unsigned int adc_mq, adc_sb, adc_fo, broj, broj1, broj2, r; //ADC promenljive
+unsigned int adc_mq, adc_sb, adc_fo = 0, broj, broj1, broj2, r; //ADC promenljive
 unsigned int brojac_t1, brojac_t2, brojac_t3, vreme, vreme_paljenje, vreme_gasenje, vreme_paljenje_b, vreme_gasenje_b; //Tajmer promenljive
 
 
@@ -186,19 +186,19 @@ void Delay(unsigned int N)
 void pinInit() { //Inicijalizacija pinova 
     
     //ADPCFGbits.PCFG10 = 1; //PIN B10 digitalni
+    ADPCFGbits.PCFG7 = 0;
+    ADPCFGbits.PCFG6 = 0;
     TRISAbits.TRISA11 = 0; //PIN D0 izlaz(buzzer)
-    //TRISDbits.TRISD9 = 0; //PIN D1 izlaz(servo_pin)
+    TRISDbits.TRISD9 = 0; //PIN D1 izlaz(servo_pin)
     TRISDbits.TRISD3 = 0; //PIN D3 izlaz(sb_trig_pin)
-    //TRISBbits.TRISB10 = 0; //PIN B6 izlaz(lcd_bckl_pin)
-    //TRISBbits.TRISB0 = 1; //PIN B7 ulaz(senzor_blizine)
-    //TRISDbits.TRISD9 = 1; //PIN A11 ulaz(echo_pin_interupt)
-    //TRISBbits.TRISB6 = 1; //PIN B8 ulaz(mq_senzor)
-    //TRISBbits.TRISB7 = 1; //PIN B2 ulaz(fotootpornik)
+    TRISBbits.TRISB10 = 0; //PIN B10 izlaz(lcd_bckl_pin)
+    TRISBbits.TRISB6 = 1; //PIN B8 ulaz(mq_senzor)
+    TRISBbits.TRISB7 = 1; //PIN B2 ulaz(fotootpornik)
     TRISDbits.TRISD8 = 1; //PIN D8 ulaz(pir_senzor)
     TRISFbits.TRISF5 = 0; //PIN F5 izlaz
     TRISFbits.TRISF6 = 0; //PIN F6 izlaz
     TRISFbits.TRISF4 = 0; //PIN F4 izlaz
-    TRISFbits.TRISF3= 1; //PIN C15 ulaz(prekidac_zatvorenih_vrata)
+   // TRISFbits.TRISF4= 1; //PIN C15 ulaz(prekidac_zatvorenih_vrata)
     TRISCbits.TRISC13= 0;
     TRISCbits.TRISC14= 0;
     //Touch 
@@ -215,13 +215,13 @@ void pinInit() { //Inicijalizacija pinova
 /////////////////____ADC____///////////////////////
 void __attribute__((__interrupt__)) _ADCInterrupt(void){
     
-    //adc_mq = ADCBUF0;
-    //adc_fo = ADCBUF1;
-    touchx = ADCBUF0;
-    touchy = ADCBUF1;
+    adc_mq = ADCBUF0;
+    adc_fo = ADCBUF1;
+    /*touchx = ADCBUF2;
+    touchy = ADCBUF3;
     
     adc_X = touchx;
-    adc_Y = touchy;
+    adc_Y = touchy;*/
     
     IFS0bits.ADIF = 0;
     
@@ -238,13 +238,13 @@ void __attribute__((__interrupt__)) _U1RXInterrupt(void)
 /////////////////____Tajmer____///////////////////////
 void Delay_us (int vreme)//funkcija za kasnjenje u milisekundama
 	{
-		brojac_t1 = 0;
+		brojac_t2 = 0;
 		while(brojac_t1 < vreme);
 	}
 
 void Delay_ms (int vreme)//funkcija za kasnjenje u milisekundama
 	{
-		brojac_t2 = 0;
+		brojac_t1 = 0;
 		while(brojac_t1 < vreme);
 	}
 
@@ -253,7 +253,6 @@ void __attribute__((__interrupt__)) _T1Interrupt(void)
 
    	TMR1 =0;
     brojac_t1++;//brojac za funkciju Delay_ms
-    if(brojac_t1 == 250000) brojac_t2++;
     IFS0bits.T1IF = 0;   
 
 }  
@@ -261,9 +260,8 @@ void __attribute__((__interrupt__)) _T1Interrupt(void)
 void __attribute__((__interrupt__)) _T2Interrupt(void)
 {
 
-   	//TMR2 =0;
-    //TMR1 = 0;
-    //brojac_t2++;//brojac za funkciju Delay_ms
+   	TMR2 =0;
+    brojac_t2++;//brojac za funkciju Delay_us
     IFS0bits.T2IF = 0;   
 
 } 
@@ -296,15 +294,6 @@ void lcd_bck_light()
         PORTBbits.RB10 = 0;
         Delay_us(vreme_paljenje);
         
-}
-
-int pirDetection()
-{
-    if(PORTDbits.RD8)
-        return 1;
-    else
-        return 0;
-    
 }
 
  int alko_procenat(){
@@ -455,6 +444,7 @@ int main(int argc, char** argv) {
     unsigned int temp = 0; 
     unsigned int flag1 = 1;
     unsigned int flag2 = 0;
+    unsigned int ekran = 0;
     int set_alko_proc = 10;
     initUART1();
     ADCinit();
@@ -462,32 +452,36 @@ int main(int argc, char** argv) {
     ConfigureLCDPins();
     GLCD_LcdInit();
 	GLCD_ClrScr();
-    //initTIMER2(30);
-    initTIMER1(10000);
+    //initTIMER2(80);
+    initTIMER1(8000);
     //Init_T1();
     //Init_T2();
 
     //OC1RS = 0;
     //initPWM_servo();
     ADCON1bits.ADON = 1;
-    //initTrig();
-  //Interrupt_init();
-   OpenTimer3(25,0);
+
    //GLCD_ClrScr();
 
     while(1){
         //initPWM_servo();
         //meny();
-   
-   GLCD_DisplayPicture(DAN);
+       // RS232_putst("Korisnik je ispred uredjaja");
+   //lcd_bck_light();  
+   WriteUART1dec2string(adc_mq);
+   WriteUART1(13);
+   //WriteUART1dec2string(adc_mq);
+   //WriteUART1(13);
+   //Delay_ms(500);
+   /*GLCD_DisplayPicture(DAN)
    Touch_Panel();
-   Delay_ms(500);
+   Delay_ms(500);*/
     //WriteUART1dec2string(Y);
    // WriteUART1(10);
    
    
    //***********PROVERA STANJA************ 
-   if((Y > 30 && Y <= 64) && (X > 0 && X < 31)){
+   /*if((Y > 30 && Y <= 64) && (X > 0 && X < 31)){
        temp = 1;  
        uslov = 1;
        promena = 1;
@@ -522,6 +516,7 @@ int main(int argc, char** argv) {
        if(X > 0 && X <= 49 && Y > 0 && Y < 10){
            temp = 0;
            promena = 0;//NAZAD
+           uslov = 0;
        }
     }
        
@@ -529,13 +524,13 @@ int main(int argc, char** argv) {
    if (temp == 3){
        
        if(X > 6 && X <= 31 && Y > 19 && Y < 43){
-            //tamnije
+            //on
+           ekran = 1;
        }
-       if(X > 53 && X <= 74 && Y > 19 && Y < 43){
-            //AUTO
-       } 
+       
        if(X > 93 && X <= 117 && Y > 19 && Y < 43){
-            //svetlije
+            //off
+           ekran = 0;
        }
        
        if(X > 0 && X <= 49 && Y > 0 && Y < 10){
@@ -605,11 +600,20 @@ int main(int argc, char** argv) {
             GLCD_ClrScr();
             ulaz = 0;
         }
-       GLCD_DisplayPicture(brightness);
        GoToXY(0,0);
-       GLCD_Rectangle (0,56,49,63);
-       GoToXY(10,7);
-       GLCD_Printf ("NAZAD");
+        GLCD_Rectangle (0,0,127,25);
+        GoToXY(20,1);
+        GLCD_Printf ("OSVETLJENJE");
+        GLCD_Rectangle (0,27,61,54);
+        GoToXY(25,5);
+        GLCD_Printf ("ON");
+        GLCD_Rectangle (65,27,127,54);
+        GoToXY(90,5);
+        GLCD_Printf ("OFF");
+        GoToXY(0,0);
+        GLCD_Rectangle (0,56,49,63);
+        GoToXY(10,7);
+        GLCD_Printf ("NAZAD");
        
       }
    
@@ -623,12 +627,12 @@ int main(int argc, char** argv) {
         //GLCD_Rectangle (0,0,127,25);
         GoToXY(20,1);
         GLCD_Printf ("DISTANCA");
-        //GLCD_Circle (28,42,8);
+        //GLCD_Rectangle (5,32,56,49);
         GoToXY(25,5);
-        GLCD_Printf ("+");
-        //GLCD_Circle (94,42,8);
+        Glcd_PutCharBig('+');
+        //GLCD_Rectangle (70,32,122,49);
         GoToXY(90,5);
-        GLCD_Printf ("-");
+        Glcd_PutCharBig('-');
         GoToXY(0,0);
         //GLCD_Rectangle (0,56,49,63);
         GoToXY(10,7);
@@ -686,7 +690,7 @@ int main(int argc, char** argv) {
        
     }   
   
-   }
+   }*/
     
         /*int dis = 0;
         LATDbits.LATD3 = 1;
@@ -709,11 +713,17 @@ int main(int argc, char** argv) {
             if(IFS0bits.T3IF == 1){
                 IFS0bits.T3IF = 0; 
             }*/
+   /*if(ekran == 1)
+       LATBbits.LATB10 = 0;
+   else
+       LATBbits.LATB10 = 1;
  
-        /*if(PORTDbits.RD8 && flag1 == 1) {
-            
+        if(PORTDbits.RD8 && flag1 == 1) {
+            if(ekran == 1){
+                LATBbits.LATB10 = 1;
+            }
             RS232_putst("Korisnik je ispred uredjaja");
-            flag1 = 0;
+            flag1 = 2;
             flag2 = 0;
             while(adc_mq < 50);
         }else
@@ -729,7 +739,7 @@ int main(int argc, char** argv) {
         //WriteUART1(dis);
         //WriteUART1(echo_brojac);
         
-        while(flag1 == 0){
+        while(flag1 == 2){
             
             
             if(adc_mq < 1000 && flag2 == 0){

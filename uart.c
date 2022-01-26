@@ -4,7 +4,7 @@
 
 void initUART1(void)
 {
-    U1BRG=0x0040;//ovim odredjujemo baudrate
+    U1BRG=0x0015;//ovim odredjujemo baudrate
 
     U1MODEbits.ALTIO=0;//biramo koje pinove koristimo za komunikaciju osnovne ili alternativne
 

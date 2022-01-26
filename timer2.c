@@ -82,7 +82,7 @@ void WriteTimer2(unsigned int timer)
     TMR2 = timer;     /* assign timer value to Timer2 Register */
 }
 
-/*void initTIMER2(int period)//konfiguracija Timer1
+void initTIMER2(int period)//konfiguracija Timer1
 {
 	unsigned int match_value;//vrednost koja se stavlja u period
 
@@ -91,7 +91,7 @@ void WriteTimer2(unsigned int timer)
 	match_value = period ;
 	OpenTimer2(T2_ON & T2_GATE_OFF & T2_IDLE_CON & T2_PS_1_1 & T2_SYNC_EXT_OFF & T2_SOURCE_INT,match_value );
 
-}*/
+}
 
 
 
