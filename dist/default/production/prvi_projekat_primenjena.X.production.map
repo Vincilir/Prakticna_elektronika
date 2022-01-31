@@ -113,12 +113,12 @@ Default Scalar Model: Small
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x100               0x38c           0x552  (1362)
-.const                       0x48c              0x1a36          0x2751  (10065)
-.text                       0x1ec2               0xf18          0x16a4  (5796)
-.dinit                      0x2dda                 0xe            0x15  (21)
+.text                        0x100               0x394           0x55e  (1374)
+.const                       0x494              0x1486          0x1ec9  (7881)
+.text                       0x191a               0xe00          0x1500  (5376)
+.dinit                      0x271a                 0xe            0x15  (21)
 
-                 Total "program" memory used (bytes):         0x435c  (17244) 35%
+                 Total "program" memory used (bytes):         0x393c  (14652) 30%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x800]
@@ -215,226 +215,220 @@ External Symbols in Program Memory (by address):
                   0x000152                  __data_init
                   0x000152                  __data_init_standard
                   0x0001c8                  __ADCInterrupt
-                  0x0001e4                  __U1RXInterrupt
-                  0x0001fe                  __T1Interrupt
-                  0x00021a                  __T2Interrupt
-                  0x000236                  __DefaultInterrupt
-                  0x00023c                  ___divsf3
-                  0x0002c0                  ___fixunssfsi
-                  0x0002f6                  ___floatsisf
-                  0x0002fc                  ___floatunsisf
-                  0x000300                  __fpack
-                  0x00034c                  __funpack
-                  0x000376                  __funpack2
-                  0x000386                  __fPropagateNaN
-                  0x000398                  __fbopExit
-                  0x0003a0                  __fbopReturnNaN
-                  0x0003a6                  ___mulsf3
-                  0x00040e                  ___floatdisf
-                  0x00042e                  ___floatundisf
-                  0x00048c                  _NOC
-                  0x00088c                  _zupcanik
-                  0x000c8c                  _fontBIG
-                  0x00123c                  _font
-                  0x0016ba                  _AD_Xmin
-                  0x0016bc                  _AD_Xmax
-                  0x0016be                  _AD_Ymin
-                  0x0016c0                  _AD_Ymax
-                  0x0016c2                  _brightness
-                  0x001ac2                  _DAN
-                  0x001ec2                  _meny
-                  0x001f3a                  _ispis_alk
-                  0x002060                  _SetRST
-                  0x00207c                  _SetE
-                  0x002098                  _SetRW
-                  0x0020b4                  _SetRS
-                  0x0020d0                  _SetCS2
-                  0x0020ec                  _SetCS1
-                  0x002108                  _ConfigureLCDPins
-                  0x002136                  _ConfigureLcdData
-                  0x00216a                  _SetLcdData
-                  0x0021a4                  _ReadLcdData
-                  0x0021c8                  _strobe_data
-                  0x0021d6                  _LcdInstructionWrite
-                  0x0021ec                  _LcdDelay
-                  0x002204                  _LcdWaitBusy
-                  0x00222e                  _GoToX
-                  0x002268                  _GoToY
-                  0x002282                  _GoToXY
-                  0x002294                  _LcdSelectStartline
-                  0x0022a2                  _LcdSelectSide
-                  0x0022dc                  _LcdDataRead
-                  0x00230a                  _GLCD_LcdInit
-                  0x00236c                  _LcdDataWrite
-                  0x002382                  _GLCD_ClrScr
-                  0x0023ce                  _GLCD_FillScr
-                  0x00241a                  _GLCD_DisplayPicture
-                  0x002486                  _LcdSetDot
-                  0x0024c6                  _LcdResDot
-                  0x002508                  _GLCD_Circle
-                  0x00260c                  _GLCD_Rectangle
-                  0x002676                  _Glcd_PutChar
-                  0x0026de                  _Glcd_PutCharBig
-                  0x002790                  _GLCD_Printf
-                  0x0027aa                  _GLCD_ShowGreed
-                  0x002826                  _GLCD_Clr_Rectangle
-                  0x002890                  _Delay
-                  0x0028a8                  _pinInit
-                  0x0028d2                  _Delay_us
-                  0x0028e6                  _Delay_ms
-                  0x0028fa                  _servo0
-                  0x002938                  _servo90
-                  0x002976                  _lcd_bck_light
-                  0x002994                  _alko_procenat
-                  0x0029ae                  _buzzer0
-                  0x0029b8                  _buzzer100
-                  0x0029c4                  _buzzer_sb
-                  0x0029da                  _buzzer_stop
-                  0x0029fc                  _buzzer_open
-                  0x002a1e                  _readEcho
-                  0x002a44                  _initPWM_servo
-                  0x002a5e                  _initTrig
-                  0x002a6c                  _Touch_Panel
-                  0x002aba                  _main
-                  0x002afc                  _initUART1
-                  0x002b16                  _WriteUART1
-                  0x002b3e                  _RS232_putst
-                  0x002b5a                  _WriteUART1dec2string
-                  0x002bc6                  _CloseTimer2
-                  0x002bd2                  _ConfigIntTimer2
-                  0x002c0e                  _OpenTimer2
-                  0x002c24                  _ReadTimer2
-                  0x002c2c                  _WriteTimer2
-                  0x002c38                  _initTIMER2
-                  0x002c52                  _CloseTimer1
-                  0x002c5e                  _ConfigIntTimer1
-                  0x002c9a                  _OpenTimer1
-                  0x002cae                  _ReadTimer1
-                  0x002cb6                  _WriteTimer1
-                  0x002cc2                  _initTIMER1
-                  0x002cdc                  _CloseTimer3
-                  0x002ce8                  _ConfigIntTimer4
-                  0x002d24                  _OpenTimer3
-                  0x002d38                  _ReadTimer3
-                  0x002d40                  _WriteTimer3
-                  0x002d4c                  _ADCinit
-                  0x002db2                  _Init_T2
-                  0x002dc6                  _Init_T1
+                  0x0001ec                  __U1RXInterrupt
+                  0x000206                  __T1Interrupt
+                  0x000222                  __T2Interrupt
+                  0x00023e                  __DefaultInterrupt
+                  0x000244                  ___divsf3
+                  0x0002c8                  ___fixunssfsi
+                  0x0002fe                  ___floatsisf
+                  0x000304                  ___floatunsisf
+                  0x000308                  __fpack
+                  0x000354                  __funpack
+                  0x00037e                  __funpack2
+                  0x00038e                  __fPropagateNaN
+                  0x0003a0                  __fbopExit
+                  0x0003a8                  __fbopReturnNaN
+                  0x0003ae                  ___mulsf3
+                  0x000416                  ___floatdisf
+                  0x000436                  ___floatundisf
+                  0x000494                  _NOC
+                  0x000894                  _zupcanik
+                  0x000c94                  _font
+                  0x001112                  _AD_Xmin
+                  0x001114                  _AD_Xmax
+                  0x001116                  _AD_Ymin
+                  0x001118                  _AD_Ymax
+                  0x00111a                  _brightness
+                  0x00151a                  _DAN
+                  0x00191a                  _meny
+                  0x001992                  _ispis_alk
+                  0x001ab8                  _SetRST
+                  0x001ad4                  _SetE
+                  0x001af0                  _SetRW
+                  0x001b0c                  _SetRS
+                  0x001b28                  _SetCS2
+                  0x001b44                  _SetCS1
+                  0x001b60                  _ConfigureLCDPins
+                  0x001b8e                  _ConfigureLcdData
+                  0x001bc2                  _SetLcdData
+                  0x001bfc                  _ReadLcdData
+                  0x001c20                  _strobe_data
+                  0x001c2e                  _LcdInstructionWrite
+                  0x001c44                  _LcdDelay
+                  0x001c5c                  _LcdWaitBusy
+                  0x001c86                  _GoToX
+                  0x001cc0                  _GoToY
+                  0x001cda                  _GoToXY
+                  0x001cec                  _LcdSelectStartline
+                  0x001cfa                  _LcdSelectSide
+                  0x001d34                  _LcdDataRead
+                  0x001d62                  _GLCD_LcdInit
+                  0x001dc4                  _LcdDataWrite
+                  0x001dda                  _GLCD_ClrScr
+                  0x001e26                  _GLCD_FillScr
+                  0x001e72                  _GLCD_DisplayPicture
+                  0x001ede                  _LcdSetDot
+                  0x001f1e                  _LcdResDot
+                  0x001f60                  _GLCD_Circle
+                  0x002064                  _GLCD_Rectangle
+                  0x0020ce                  _Glcd_PutChar
+                  0x002136                  _GLCD_Printf
+                  0x002150                  _GLCD_ShowGreed
+                  0x0021cc                  _GLCD_Clr_Rectangle
+                  0x002236                  _pinInit
+                  0x002252                  _Delay_us
+                  0x002266                  _Delay_ms
+                  0x00227a                  _servo0
+                  0x00228c                  _servo90
+                  0x00229e                  _lcd_bck_light
+                  0x0022bc                  _pirDetection
+                  0x0022d2                  _alko_procenat
+                  0x0022ec                  _buzzer0
+                  0x0022f6                  _buzzer100
+                  0x002302                  _buzzer_sb
+                  0x002318                  _buzzer_stop
+                  0x00233a                  _buzzer_open
+                  0x00235c                  _readEcho
+                  0x002382                  _initPWM_servo
+                  0x00239c                  _Touch_Panel
+                  0x0023ea                  _main
+                  0x00243c                  _initUART1
+                  0x002456                  _WriteUART1
+                  0x00247e                  _RS232_putst
+                  0x00249a                  _WriteUART1dec2string
+                  0x002506                  _CloseTimer2
+                  0x002512                  _ConfigIntTimer2
+                  0x00254e                  _OpenTimer2
+                  0x002564                  _ReadTimer2
+                  0x00256c                  _WriteTimer2
+                  0x002578                  _initTIMER2
+                  0x002592                  _CloseTimer1
+                  0x00259e                  _ConfigIntTimer1
+                  0x0025da                  _OpenTimer1
+                  0x0025ee                  _ReadTimer1
+                  0x0025f6                  _WriteTimer1
+                  0x002602                  _initTIMER1
+                  0x00261c                  _CloseTimer3
+                  0x002628                  _ConfigIntTimer4
+                  0x002664                  _OpenTimer3
+                  0x002678                  _ReadTimer3
+                  0x002680                  _WriteTimer3
+                  0x00268c                  _ADCinit
+                  0x0026f2                  _Init_T2
+                  0x002706                  _Init_T1
                   0xf8000a                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x002d4c                  _ADCinit
-                  0x0016bc                  _AD_Xmax
-                  0x0016ba                  _AD_Xmin
-                  0x0016c0                  _AD_Ymax
-                  0x0016be                  _AD_Ymin
-                  0x002c52                  _CloseTimer1
-                  0x002bc6                  _CloseTimer2
-                  0x002cdc                  _CloseTimer3
-                  0x002c5e                  _ConfigIntTimer1
-                  0x002bd2                  _ConfigIntTimer2
-                  0x002ce8                  _ConfigIntTimer4
-                  0x002108                  _ConfigureLCDPins
-                  0x002136                  _ConfigureLcdData
-                  0x001ac2                  _DAN
-                  0x002890                  _Delay
-                  0x0028e6                  _Delay_ms
-                  0x0028d2                  _Delay_us
-                  0x002508                  _GLCD_Circle
-                  0x002382                  _GLCD_ClrScr
-                  0x002826                  _GLCD_Clr_Rectangle
-                  0x00241a                  _GLCD_DisplayPicture
-                  0x0023ce                  _GLCD_FillScr
-                  0x00230a                  _GLCD_LcdInit
-                  0x002790                  _GLCD_Printf
-                  0x00260c                  _GLCD_Rectangle
-                  0x0027aa                  _GLCD_ShowGreed
-                  0x002676                  _Glcd_PutChar
-                  0x0026de                  _Glcd_PutCharBig
-                  0x00222e                  _GoToX
-                  0x002282                  _GoToXY
-                  0x002268                  _GoToY
-                  0x002dc6                  _Init_T1
-                  0x002db2                  _Init_T2
-                  0x0022dc                  _LcdDataRead
-                  0x00236c                  _LcdDataWrite
-                  0x0021ec                  _LcdDelay
-                  0x0021d6                  _LcdInstructionWrite
-                  0x0024c6                  _LcdResDot
-                  0x0022a2                  _LcdSelectSide
-                  0x002294                  _LcdSelectStartline
-                  0x002486                  _LcdSetDot
-                  0x002204                  _LcdWaitBusy
-                  0x00048c                  _NOC
-                  0x002c9a                  _OpenTimer1
-                  0x002c0e                  _OpenTimer2
-                  0x002d24                  _OpenTimer3
-                  0x002b3e                  _RS232_putst
-                  0x0021a4                  _ReadLcdData
-                  0x002cae                  _ReadTimer1
-                  0x002c24                  _ReadTimer2
-                  0x002d38                  _ReadTimer3
-                  0x0020ec                  _SetCS1
-                  0x0020d0                  _SetCS2
-                  0x00207c                  _SetE
-                  0x00216a                  _SetLcdData
-                  0x0020b4                  _SetRS
-                  0x002060                  _SetRST
-                  0x002098                  _SetRW
-                  0x002a6c                  _Touch_Panel
-                  0x002cb6                  _WriteTimer1
-                  0x002c2c                  _WriteTimer2
-                  0x002d40                  _WriteTimer3
-                  0x002b16                  _WriteUART1
-                  0x002b5a                  _WriteUART1dec2string
+                  0x00268c                  _ADCinit
+                  0x001114                  _AD_Xmax
+                  0x001112                  _AD_Xmin
+                  0x001118                  _AD_Ymax
+                  0x001116                  _AD_Ymin
+                  0x002592                  _CloseTimer1
+                  0x002506                  _CloseTimer2
+                  0x00261c                  _CloseTimer3
+                  0x00259e                  _ConfigIntTimer1
+                  0x002512                  _ConfigIntTimer2
+                  0x002628                  _ConfigIntTimer4
+                  0x001b60                  _ConfigureLCDPins
+                  0x001b8e                  _ConfigureLcdData
+                  0x00151a                  _DAN
+                  0x002266                  _Delay_ms
+                  0x002252                  _Delay_us
+                  0x001f60                  _GLCD_Circle
+                  0x001dda                  _GLCD_ClrScr
+                  0x0021cc                  _GLCD_Clr_Rectangle
+                  0x001e72                  _GLCD_DisplayPicture
+                  0x001e26                  _GLCD_FillScr
+                  0x001d62                  _GLCD_LcdInit
+                  0x002136                  _GLCD_Printf
+                  0x002064                  _GLCD_Rectangle
+                  0x002150                  _GLCD_ShowGreed
+                  0x0020ce                  _Glcd_PutChar
+                  0x001c86                  _GoToX
+                  0x001cda                  _GoToXY
+                  0x001cc0                  _GoToY
+                  0x002706                  _Init_T1
+                  0x0026f2                  _Init_T2
+                  0x001d34                  _LcdDataRead
+                  0x001dc4                  _LcdDataWrite
+                  0x001c44                  _LcdDelay
+                  0x001c2e                  _LcdInstructionWrite
+                  0x001f1e                  _LcdResDot
+                  0x001cfa                  _LcdSelectSide
+                  0x001cec                  _LcdSelectStartline
+                  0x001ede                  _LcdSetDot
+                  0x001c5c                  _LcdWaitBusy
+                  0x000494                  _NOC
+                  0x0025da                  _OpenTimer1
+                  0x00254e                  _OpenTimer2
+                  0x002664                  _OpenTimer3
+                  0x00247e                  _RS232_putst
+                  0x001bfc                  _ReadLcdData
+                  0x0025ee                  _ReadTimer1
+                  0x002564                  _ReadTimer2
+                  0x002678                  _ReadTimer3
+                  0x001b44                  _SetCS1
+                  0x001b28                  _SetCS2
+                  0x001ad4                  _SetE
+                  0x001bc2                  _SetLcdData
+                  0x001b0c                  _SetRS
+                  0x001ab8                  _SetRST
+                  0x001af0                  _SetRW
+                  0x00239c                  _Touch_Panel
+                  0x0025f6                  _WriteTimer1
+                  0x00256c                  _WriteTimer2
+                  0x002680                  _WriteTimer3
+                  0x002456                  _WriteUART1
+                  0x00249a                  _WriteUART1dec2string
                   0x0001c8                  __ADCInterrupt
-                  0x000236                  __DefaultInterrupt
+                  0x00023e                  __DefaultInterrupt
                   0xf8000a                  __FGS.sec
-                  0x0001fe                  __T1Interrupt
-                  0x00021a                  __T2Interrupt
-                  0x0001e4                  __U1RXInterrupt
-                  0x00023c                  ___divsf3
-                  0x0002c0                  ___fixunssfsi
-                  0x00040e                  ___floatdisf
-                  0x0002f6                  ___floatsisf
-                  0x00042e                  ___floatundisf
-                  0x0002fc                  ___floatunsisf
-                  0x0003a6                  ___mulsf3
+                  0x000206                  __T1Interrupt
+                  0x000222                  __T2Interrupt
+                  0x0001ec                  __U1RXInterrupt
+                  0x000244                  ___divsf3
+                  0x0002c8                  ___fixunssfsi
+                  0x000416                  ___floatdisf
+                  0x0002fe                  ___floatsisf
+                  0x000436                  ___floatundisf
+                  0x000304                  ___floatunsisf
+                  0x0003ae                  ___mulsf3
                   0x000152                  __data_init
                   0x000152                  __data_init_standard
-                  0x000386                  __fPropagateNaN
-                  0x000398                  __fbopExit
-                  0x0003a0                  __fbopReturnNaN
-                  0x000300                  __fpack
-                  0x00034c                  __funpack
-                  0x000376                  __funpack2
+                  0x00038e                  __fPropagateNaN
+                  0x0003a0                  __fbopExit
+                  0x0003a8                  __fbopReturnNaN
+                  0x000308                  __fpack
+                  0x000354                  __funpack
+                  0x00037e                  __funpack2
                   0x00013c                  __psv_init
                   0x000100                  __resetPRI
-                  0x002994                  _alko_procenat
-                  0x0016c2                  _brightness
-                  0x0029ae                  _buzzer0
-                  0x0029b8                  _buzzer100
-                  0x0029fc                  _buzzer_open
-                  0x0029c4                  _buzzer_sb
-                  0x0029da                  _buzzer_stop
-                  0x00123c                  _font
-                  0x000c8c                  _fontBIG
-                  0x002a44                  _initPWM_servo
-                  0x002cc2                  _initTIMER1
-                  0x002c38                  _initTIMER2
-                  0x002a5e                  _initTrig
-                  0x002afc                  _initUART1
-                  0x001f3a                  _ispis_alk
-                  0x002976                  _lcd_bck_light
-                  0x002aba                  _main
-                  0x001ec2                  _meny
-                  0x0028a8                  _pinInit
-                  0x002a1e                  _readEcho
-                  0x0028fa                  _servo0
-                  0x002938                  _servo90
-                  0x0021c8                  _strobe_data
-                  0x00088c                  _zupcanik
+                  0x0022d2                  _alko_procenat
+                  0x00111a                  _brightness
+                  0x0022ec                  _buzzer0
+                  0x0022f6                  _buzzer100
+                  0x00233a                  _buzzer_open
+                  0x002302                  _buzzer_sb
+                  0x002318                  _buzzer_stop
+                  0x000c94                  _font
+                  0x002382                  _initPWM_servo
+                  0x002602                  _initTIMER1
+                  0x002578                  _initTIMER2
+                  0x00243c                  _initUART1
+                  0x001992                  _ispis_alk
+                  0x00229e                  _lcd_bck_light
+                  0x0023ea                  _main
+                  0x00191a                  _meny
+                  0x002236                  _pinInit
+                  0x0022bc                  _pirDetection
+                  0x00235c                  _readEcho
+                  0x00227a                  _servo0
+                  0x00228c                  _servo90
+                  0x001c20                  _strobe_data
+                  0x000894                  _zupcanik
 
 Memory Configuration
 
@@ -498,7 +492,7 @@ LOAD c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000100        0x38c
+.text             0x000100        0x394
  *(.init)
  .init            0x000100         0x4c c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
                   0x000100                  __resetPRI
@@ -510,56 +504,56 @@ LOAD c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0001c8         0x6e build/default/production/main.o
+ .isr.text        0x0001c8         0x76 build/default/production/main.o
                   0x0001c8                  __ADCInterrupt
-                  0x0001e4                  __U1RXInterrupt
-                  0x0001fe                  __T1Interrupt
-                  0x00021a                  __T2Interrupt
- .isr             0x000236          0x4 default_isr
-                  0x000236                  __DefaultInterrupt
+                  0x0001ec                  __U1RXInterrupt
+                  0x000206                  __T1Interrupt
+                  0x000222                  __T2Interrupt
+ .isr             0x00023e          0x4 default_isr
+                  0x00023e                  __DefaultInterrupt
  *(.libc)
  *(.libm)
  *(.libdsp)
  *(.lib*)
  .libpic30_crt_start_mode
-                  0x00023a          0x2 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\liblega-pic30-elf.a(crt_start_mode_normal.Leo)
-                  0x00023a                  __crt_start_mode
-                  0x00023a                  __crt_start_mode_normal
- .libm.divfs3     0x00023c         0x84 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(divsf3.eo)
-                  0x00023c                  ___divsf3
+                  0x000242          0x2 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\liblega-pic30-elf.a(crt_start_mode_normal.Leo)
+                  0x000242                  __crt_start_mode
+                  0x000242                  __crt_start_mode_normal
+ .libm.divfs3     0x000244         0x84 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(divsf3.eo)
+                  0x000244                  ___divsf3
  .libm.fixunssfsi
-                  0x0002c0         0x36 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(fixunssfsi.eo)
-                  0x0002c0                  ___fixunssfsi
+                  0x0002c8         0x36 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(fixunssfsi.eo)
+                  0x0002c8                  ___fixunssfsi
  .libm.floatsisf
-                  0x0002f6          0x6 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(floatsisf.eo)
-                  0x0002f6                  ___floatsisf
+                  0x0002fe          0x6 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(floatsisf.eo)
+                  0x0002fe                  ___floatsisf
  .libm.floatunsisf
-                  0x0002fc          0x4 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(floatunsisf.eo)
-                  0x0002fc                  ___floatunsisf
- .libm.fpack      0x000300         0x4c c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(fpack.eo)
-                  0x000300                  __fpack
- .libm.funpack    0x00034c         0x2a c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(funpack.eo)
-                  0x00034c                  __funpack
+                  0x000304          0x4 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(floatunsisf.eo)
+                  0x000304                  ___floatunsisf
+ .libm.fpack      0x000308         0x4c c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(fpack.eo)
+                  0x000308                  __fpack
+ .libm.funpack    0x000354         0x2a c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(funpack.eo)
+                  0x000354                  __funpack
  .libm.funpack2
-                  0x000376         0x10 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(funpack2.eo)
-                  0x000376                  __funpack2
+                  0x00037e         0x10 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(funpack2.eo)
+                  0x00037e                  __funpack2
  .libm.fPropagateNaN
-                  0x000386         0x12 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(futil.eo)
-                  0x000386                  __fPropagateNaN
+                  0x00038e         0x12 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(futil.eo)
+                  0x00038e                  __fPropagateNaN
  .libm.fbobExit
-                  0x000398          0x8 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(futil.eo)
-                  0x000398                  __fbopExit
+                  0x0003a0          0x8 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(futil.eo)
+                  0x0003a0                  __fbopExit
  .libm.fbopReturnNaN
-                  0x0003a0          0x6 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(futil.eo)
-                  0x0003a0                  __fbopReturnNaN
- .libm.mulsf3     0x0003a6         0x68 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(mulsf3.eo)
-                  0x0003a6                  ___mulsf3
+                  0x0003a8          0x6 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(futil.eo)
+                  0x0003a8                  __fbopReturnNaN
+ .libm.mulsf3     0x0003ae         0x68 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(mulsf3.eo)
+                  0x0003ae                  ___mulsf3
  .libm.floatdisf
-                  0x00040e         0x20 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(floatdisf.eo)
-                  0x00040e                  ___floatdisf
+                  0x000416         0x20 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(floatdisf.eo)
+                  0x000416                  ___floatdisf
  .libm.floatundisf
-                  0x00042e         0x5e c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(floatundisf.eo)
-                  0x00042e                  ___floatundisf
+                  0x000436         0x5e c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a(floatundisf.eo)
+                  0x000436                  ___floatundisf
 
 usercode
  *(usercode)
@@ -595,7 +589,7 @@ __RESERVED2
 
 __FGS             0xf8000a          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf8000a          0x2 /CW/_FGS
+ __FGS.sec        0xf8000a          0x2 /CW/_FGSàðá
                   0xf8000a                  __FGS.sec
 
 __FICD
@@ -610,50 +604,50 @@ userdata
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x5a53
+.debug_info       0x000000       0x598b
  *(.debug_info)
- .debug_info      0x000000        0xa86 build/default/production/adc.o
- .debug_info      0x000a86       0x18d2 build/default/production/main.o
- .debug_info      0x002358        0x618 build/default/production/uart.o
- .debug_info      0x002970        0x89a build/default/production/timer2.o
- .debug_info      0x00320a        0x8aa build/default/production/timer1.o
- .debug_info      0x003ab4        0x704 build/default/production/tajmeri.o
- .debug_info      0x0041b8        0x848 build/default/production/timer3.o
- .debug_info      0x004a00       0x1053 build/default/production/driverGLCD.o
+ .debug_info      0x000000        0xa8c build/default/production/adc.o
+ .debug_info      0x000a8c       0x1888 build/default/production/main.o
+ .debug_info      0x002314        0x61e build/default/production/uart.o
+ .debug_info      0x002932        0x89a build/default/production/timer2.o
+ .debug_info      0x0031cc        0x8aa build/default/production/timer1.o
+ .debug_info      0x003a76        0x704 build/default/production/tajmeri.o
+ .debug_info      0x00417a        0x848 build/default/production/timer3.o
+ .debug_info      0x0049c2        0xfc9 build/default/production/driverGLCD.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x92f
+.debug_abbrev     0x000000        0x92c
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xc5 build/default/production/adc.o
- .debug_abbrev    0x0000c5        0x256 build/default/production/main.o
- .debug_abbrev    0x00031b         0xe0 build/default/production/uart.o
- .debug_abbrev    0x0003fb        0x111 build/default/production/timer2.o
- .debug_abbrev    0x00050c        0x111 build/default/production/timer1.o
- .debug_abbrev    0x00061d         0xc5 build/default/production/tajmeri.o
- .debug_abbrev    0x0006e2        0x102 build/default/production/timer3.o
- .debug_abbrev    0x0007e4        0x14b build/default/production/driverGLCD.o
+ .debug_abbrev    0x0000c5        0x23e build/default/production/main.o
+ .debug_abbrev    0x000303         0xe0 build/default/production/uart.o
+ .debug_abbrev    0x0003e3        0x111 build/default/production/timer2.o
+ .debug_abbrev    0x0004f4        0x111 build/default/production/timer1.o
+ .debug_abbrev    0x000605         0xc5 build/default/production/tajmeri.o
+ .debug_abbrev    0x0006ca        0x102 build/default/production/timer3.o
+ .debug_abbrev    0x0007cc        0x160 build/default/production/driverGLCD.o
 
-.debug_line       0x000000        0xb2b
+.debug_line       0x000000        0xb05
  *(.debug_line)
  .debug_line      0x000000        0x119 build/default/production/adc.o
- .debug_line      0x000119        0x1c0 build/default/production/main.o
- .debug_line      0x0002d9        0x119 build/default/production/uart.o
- .debug_line      0x0003f2        0x123 build/default/production/timer2.o
- .debug_line      0x000515        0x122 build/default/production/timer1.o
- .debug_line      0x000637        0x10c build/default/production/tajmeri.o
- .debug_line      0x000743        0x11c build/default/production/timer3.o
- .debug_line      0x00085f        0x2cc build/default/production/driverGLCD.o
+ .debug_line      0x000119        0x1b8 build/default/production/main.o
+ .debug_line      0x0002d1        0x119 build/default/production/uart.o
+ .debug_line      0x0003ea        0x123 build/default/production/timer2.o
+ .debug_line      0x00050d        0x122 build/default/production/timer1.o
+ .debug_line      0x00062f        0x10c build/default/production/tajmeri.o
+ .debug_line      0x00073b        0x11c build/default/production/timer3.o
+ .debug_line      0x000857        0x2ae build/default/production/driverGLCD.o
 
-.debug_frame      0x000000        0x93c
+.debug_frame      0x000000        0x908
  *(.debug_frame)
  .debug_frame     0x000000         0x2e build/default/production/adc.o
- .debug_frame     0x00002e        0x290 build/default/production/main.o
- .debug_frame     0x0002be         0x84 build/default/production/uart.o
- .debug_frame     0x000342         0xb0 build/default/production/timer2.o
- .debug_frame     0x0003f2         0xb0 build/default/production/timer1.o
- .debug_frame     0x0004a2         0x48 build/default/production/tajmeri.o
- .debug_frame     0x0004ea         0x96 build/default/production/timer3.o
- .debug_frame     0x000580        0x3bc build/default/production/driverGLCD.o
+ .debug_frame     0x00002e        0x276 build/default/production/main.o
+ .debug_frame     0x0002a4         0x84 build/default/production/uart.o
+ .debug_frame     0x000328         0xb0 build/default/production/timer2.o
+ .debug_frame     0x0003d8         0xb0 build/default/production/timer1.o
+ .debug_frame     0x000488         0x48 build/default/production/tajmeri.o
+ .debug_frame     0x0004d0         0x96 build/default/production/timer3.o
+ .debug_frame     0x000566        0x3a2 build/default/production/driverGLCD.o
 
 .debug_str        0x000000        0x252
  *(.debug_str)
@@ -673,24 +667,24 @@ userdata
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x782
+                  0x000000        0x75c
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x1e build/default/production/adc.o
  .debug_pubnames
-                  0x00001e        0x305 build/default/production/main.o
+                  0x00001e        0x2ff build/default/production/main.o
  .debug_pubnames
-                  0x000323         0x58 build/default/production/uart.o
+                  0x00031d         0x58 build/default/production/uart.o
  .debug_pubnames
-                  0x00037b         0x73 build/default/production/timer2.o
+                  0x000375         0x73 build/default/production/timer2.o
  .debug_pubnames
-                  0x0003ee         0x73 build/default/production/timer1.o
+                  0x0003e8         0x73 build/default/production/timer1.o
  .debug_pubnames
-                  0x000461         0x2a build/default/production/tajmeri.o
+                  0x00045b         0x2a build/default/production/tajmeri.o
  .debug_pubnames
-                  0x00048b         0x64 build/default/production/timer3.o
+                  0x000485         0x64 build/default/production/timer3.o
  .debug_pubnames
-                  0x0004ef        0x293 build/default/production/driverGLCD.o
+                  0x0004e9        0x273 build/default/production/driverGLCD.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1412,7 +1406,7 @@ LOAD c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
 OUTPUT(dist/default/production/prvi_projekat_primenjena.X.production.elf elf32-pic30)
-LOAD /CW/_FGS
+LOAD /CW/_FGSàðá
 LOAD default_isr
 LOAD data_init
 
@@ -1534,107 +1528,104 @@ __c30_signature
  .ivt._T2Interrupt
                   0x000020          0x2 build/default/production/main.o
 
-.const              0x848c       0x1a36 load address 0x00048c  
- .const             0x848c       0x122e build/default/production/driverGLCD.o
-                    0x848c                  _NOC
-                    0x888c                  _zupcanik
-                    0x8c8c                  _fontBIG
-                    0x923c                  _font
- .const             0x96ba        0x808 build/default/production/main.o
-                    0x96ba                  _AD_Xmin
-                    0x96bc                  _AD_Xmax
-                    0x96be                  _AD_Ymin
-                    0x96c0                  _AD_Ymax
-                    0x96c2                  _brightness
-                    0x9ac2                  _DAN
+.const              0x8494       0x1486 load address 0x000494  
+ .const             0x8494        0xc7e build/default/production/driverGLCD.o
+                    0x8494                  _NOC
+                    0x8894                  _zupcanik
+                    0x8c94                  _font
+ .const             0x9112        0x808 build/default/production/main.o
+                    0x9112                  _AD_Xmin
+                    0x9114                  _AD_Xmax
+                    0x9116                  _AD_Ymin
+                    0x9118                  _AD_Ymax
+                    0x911a                  _brightness
+                    0x951a                  _DAN
 
-.text             0x001ec2        0xf18
- .text            0x001ec2        0x9ce build/default/production/driverGLCD.o
-                  0x001ec2                  _meny
-                  0x001f3a                  _ispis_alk
-                  0x002060                  _SetRST
-                  0x00207c                  _SetE
-                  0x002098                  _SetRW
-                  0x0020b4                  _SetRS
-                  0x0020d0                  _SetCS2
-                  0x0020ec                  _SetCS1
-                  0x002108                  _ConfigureLCDPins
-                  0x002136                  _ConfigureLcdData
-                  0x00216a                  _SetLcdData
-                  0x0021a4                  _ReadLcdData
-                  0x0021c8                  _strobe_data
-                  0x0021d6                  _LcdInstructionWrite
-                  0x0021ec                  _LcdDelay
-                  0x002204                  _LcdWaitBusy
-                  0x00222e                  _GoToX
-                  0x002268                  _GoToY
-                  0x002282                  _GoToXY
-                  0x002294                  _LcdSelectStartline
-                  0x0022a2                  _LcdSelectSide
-                  0x0022dc                  _LcdDataRead
-                  0x00230a                  _GLCD_LcdInit
-                  0x00236c                  _LcdDataWrite
-                  0x002382                  _GLCD_ClrScr
-                  0x0023ce                  _GLCD_FillScr
-                  0x00241a                  _GLCD_DisplayPicture
-                  0x002486                  _LcdSetDot
-                  0x0024c6                  _LcdResDot
-                  0x002508                  _GLCD_Circle
-                  0x00260c                  _GLCD_Rectangle
-                  0x002676                  _Glcd_PutChar
-                  0x0026de                  _Glcd_PutCharBig
-                  0x002790                  _GLCD_Printf
-                  0x0027aa                  _GLCD_ShowGreed
-                  0x002826                  _GLCD_Clr_Rectangle
- .text            0x002890        0x26c build/default/production/main.o
-                  0x002890                  _Delay
-                  0x0028a8                  _pinInit
-                  0x0028d2                  _Delay_us
-                  0x0028e6                  _Delay_ms
-                  0x0028fa                  _servo0
-                  0x002938                  _servo90
-                  0x002976                  _lcd_bck_light
-                  0x002994                  _alko_procenat
-                  0x0029ae                  _buzzer0
-                  0x0029b8                  _buzzer100
-                  0x0029c4                  _buzzer_sb
-                  0x0029da                  _buzzer_stop
-                  0x0029fc                  _buzzer_open
-                  0x002a1e                  _readEcho
-                  0x002a44                  _initPWM_servo
-                  0x002a5e                  _initTrig
-                  0x002a6c                  _Touch_Panel
-                  0x002aba                  _main
- .text            0x002afc         0xca build/default/production/uart.o
-                  0x002afc                  _initUART1
-                  0x002b16                  _WriteUART1
-                  0x002b3e                  _RS232_putst
-                  0x002b5a                  _WriteUART1dec2string
- .text            0x002bc6         0x8c build/default/production/timer2.o
-                  0x002bc6                  _CloseTimer2
-                  0x002bd2                  _ConfigIntTimer2
-                  0x002c0e                  _OpenTimer2
-                  0x002c24                  _ReadTimer2
-                  0x002c2c                  _WriteTimer2
-                  0x002c38                  _initTIMER2
- .text            0x002c52         0x8a build/default/production/timer1.o
-                  0x002c52                  _CloseTimer1
-                  0x002c5e                  _ConfigIntTimer1
-                  0x002c9a                  _OpenTimer1
-                  0x002cae                  _ReadTimer1
-                  0x002cb6                  _WriteTimer1
-                  0x002cc2                  _initTIMER1
- .text            0x002cdc         0x70 build/default/production/timer3.o
-                  0x002cdc                  _CloseTimer3
-                  0x002ce8                  _ConfigIntTimer4
-                  0x002d24                  _OpenTimer3
-                  0x002d38                  _ReadTimer3
-                  0x002d40                  _WriteTimer3
- .text            0x002d4c         0x66 build/default/production/adc.o
-                  0x002d4c                  _ADCinit
- .text            0x002db2         0x28 build/default/production/tajmeri.o
-                  0x002db2                  _Init_T2
-                  0x002dc6                  _Init_T1
+.text             0x00191a        0xe00
+ .text            0x00191a        0x91c build/default/production/driverGLCD.o
+                  0x00191a                  _meny
+                  0x001992                  _ispis_alk
+                  0x001ab8                  _SetRST
+                  0x001ad4                  _SetE
+                  0x001af0                  _SetRW
+                  0x001b0c                  _SetRS
+                  0x001b28                  _SetCS2
+                  0x001b44                  _SetCS1
+                  0x001b60                  _ConfigureLCDPins
+                  0x001b8e                  _ConfigureLcdData
+                  0x001bc2                  _SetLcdData
+                  0x001bfc                  _ReadLcdData
+                  0x001c20                  _strobe_data
+                  0x001c2e                  _LcdInstructionWrite
+                  0x001c44                  _LcdDelay
+                  0x001c5c                  _LcdWaitBusy
+                  0x001c86                  _GoToX
+                  0x001cc0                  _GoToY
+                  0x001cda                  _GoToXY
+                  0x001cec                  _LcdSelectStartline
+                  0x001cfa                  _LcdSelectSide
+                  0x001d34                  _LcdDataRead
+                  0x001d62                  _GLCD_LcdInit
+                  0x001dc4                  _LcdDataWrite
+                  0x001dda                  _GLCD_ClrScr
+                  0x001e26                  _GLCD_FillScr
+                  0x001e72                  _GLCD_DisplayPicture
+                  0x001ede                  _LcdSetDot
+                  0x001f1e                  _LcdResDot
+                  0x001f60                  _GLCD_Circle
+                  0x002064                  _GLCD_Rectangle
+                  0x0020ce                  _Glcd_PutChar
+                  0x002136                  _GLCD_Printf
+                  0x002150                  _GLCD_ShowGreed
+                  0x0021cc                  _GLCD_Clr_Rectangle
+ .text            0x002236        0x206 build/default/production/main.o
+                  0x002236                  _pinInit
+                  0x002252                  _Delay_us
+                  0x002266                  _Delay_ms
+                  0x00227a                  _servo0
+                  0x00228c                  _servo90
+                  0x00229e                  _lcd_bck_light
+                  0x0022bc                  _pirDetection
+                  0x0022d2                  _alko_procenat
+                  0x0022ec                  _buzzer0
+                  0x0022f6                  _buzzer100
+                  0x002302                  _buzzer_sb
+                  0x002318                  _buzzer_stop
+                  0x00233a                  _buzzer_open
+                  0x00235c                  _readEcho
+                  0x002382                  _initPWM_servo
+                  0x00239c                  _Touch_Panel
+                  0x0023ea                  _main
+ .text            0x00243c         0xca build/default/production/uart.o
+                  0x00243c                  _initUART1
+                  0x002456                  _WriteUART1
+                  0x00247e                  _RS232_putst
+                  0x00249a                  _WriteUART1dec2string
+ .text            0x002506         0x8c build/default/production/timer2.o
+                  0x002506                  _CloseTimer2
+                  0x002512                  _ConfigIntTimer2
+                  0x00254e                  _OpenTimer2
+                  0x002564                  _ReadTimer2
+                  0x00256c                  _WriteTimer2
+                  0x002578                  _initTIMER2
+ .text            0x002592         0x8a build/default/production/timer1.o
+                  0x002592                  _CloseTimer1
+                  0x00259e                  _ConfigIntTimer1
+                  0x0025da                  _OpenTimer1
+                  0x0025ee                  _ReadTimer1
+                  0x0025f6                  _WriteTimer1
+                  0x002602                  _initTIMER1
+ .text            0x00261c         0x70 build/default/production/timer3.o
+                  0x00261c                  _CloseTimer3
+                  0x002628                  _ConfigIntTimer4
+                  0x002664                  _OpenTimer3
+                  0x002678                  _ReadTimer3
+                  0x002680                  _WriteTimer3
+ .text            0x00268c         0x66 build/default/production/adc.o
+                  0x00268c                  _ADCinit
+ .text            0x0026f2         0x28 build/default/production/tajmeri.o
+                  0x0026f2                  _Init_T2
+                  0x002706                  _Init_T1
 
-.dinit            0x002dda          0xe
- .dinit           0x002dda          0xe data_init
+.dinit            0x00271a          0xe
+ .dinit           0x00271a          0xe data_init
